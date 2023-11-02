@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [array, setArray] = useState([]);
+  const [result, setResult] = useState([]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>배열 메서드 활용</h1>
+      <input type="text" placeholder="Enter text" />
+      <br />
+      <button>forEach</button>
+      <div>
+        <h3>원본배열</h3>
+        <p>{array.join(", ")}</p>
+      </div>
+      <div>
+        <h3>결과물</h3>
+        <p>{result}</p>
+      </div>
     </div>
   );
 }
