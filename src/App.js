@@ -41,7 +41,9 @@ function App() {
     setResult(array.indexOf(query));
   };
   const handleIncludes = () => {
-    setResult(array.includes(query));
+    const newArr = [...array];
+    newArr.includes(query);
+    setResult(newArr.includes(query));
   };
   const handleFind = () => {
     setResult(array.find((item) => item.includes(query)));
@@ -83,12 +85,12 @@ function App() {
       <button onClick={handleEvery}>every</button>
       <button onClick={handleSort}>sort</button>
       <button onClick={handleJoin}>join</button>
-      <div>
-        <h3>원본배열</h3>
+      <div className="array">
+        <h3>원본배열 : </h3>
         <p>{array.join(", ")}</p>
       </div>
-      <div>
-        <h3>결과물</h3>
+      <div className="array">
+        <h3>결과물 : </h3>
         <p>{`${result}`}</p>
       </div>
     </div>
