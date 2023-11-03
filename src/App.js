@@ -15,7 +15,8 @@ function App() {
     setResult(() => array.filter((item) => item.includes(query)));
   const handleMap = () =>
     setResult(array.map((item) => item.toUpperCase()).join(", "));
-  const handleReduce = () => setResult(array.reduce((arr, cur) => arr + cur));
+  const handleReduce = () =>
+    setResult(array.reduce((arr, cur) => `${arr}, ${cur}`));
   const handlePush = () => {
     if (query === "") return;
     const newArr = [...array, query];
@@ -41,9 +42,7 @@ function App() {
     setResult(array.indexOf(query));
   };
   const handleIncludes = () => {
-    const newArr = [...array];
-    newArr.includes(query);
-    setResult(newArr.includes(query));
+    setResult(array.includes(query));
   };
   const handleFind = () => {
     setResult(array.find((item) => item.includes(query)));
@@ -55,7 +54,9 @@ function App() {
     setResult(array.every((item) => item.length >= 2));
   };
   const handleSort = () => {
-    setResult(array.sort());
+    const sorted = [...array].sort();
+    setArray(sorted);
+    setResult(sorted.join(", "));
   };
   const handleJoin = () => {
     setResult(array.join("💚"));
