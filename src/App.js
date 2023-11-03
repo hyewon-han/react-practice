@@ -42,16 +42,16 @@ function App() {
     setResult(array.indexOf(query));
   };
   const handleIncludes = () => {
-    setResult(array.includes(query));
+    setResult(array.includes(query).toString());
   };
   const handleFind = () => {
     setResult(array.find((item) => item.includes(query)));
   };
   const handleSome = () => {
-    setResult(array.some((item) => item.includes(query)));
+    setResult(array.some((item) => item.includes(query)).toString());
   };
   const handleEvery = () => {
-    setResult(array.every((item) => item.length >= 2));
+    setResult(array.every((item) => item.length >= 2).toString());
   };
   const handleSort = () => {
     const sorted = [...array].sort();
@@ -92,7 +92,7 @@ function App() {
       </div>
       <div className="array">
         <h3>결과물 : </h3>
-        <p>{`${result}`}</p>
+        <p>{result}</p>
       </div>
     </div>
   );
